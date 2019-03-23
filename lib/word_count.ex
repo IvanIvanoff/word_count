@@ -30,17 +30,17 @@ defmodule WordCount do
   @doc """
   Example usage (not a doc test!). These are results on a machine with 4 cores,
   so the expected speed-up of the concurrent implementation is around 4
-  iex(1)> WordCount.time(&WordCount.eager_count/1, file)
+  WordCount.time(&WordCount.eager_count/1, file)
   "Total number of words: 4999193. Calculation took 5719.693ms"
-  iex(2)> file = "/Users/ivan/big.txt"
+  file = "/Users/ivan/big.txt"
   "/Users/ivan/big.txt"
-  iex(3)> WordCount.time(&WordCount.concurrent_count/1, file)
+  WordCount.time(&WordCount.concurrent_count/1, file)
   "Calculation took 1299.879ms"
-  iex(4)> WordCount.time(&WordCount.lazy_count/1, file)
+  WordCount.time(&WordCount.lazy_count/1, file)
   "Total number of words: 4999193. Calculation took 4830.532ms"
-  iex(5)> "Concurrent count is #{5739 / 1299} times faster than eager"
+  "Concurrent count is #{5739 / 1299} times faster than eager"
   "Concurrent count is 4.4 times faster than eager"
-  iex(6)> "Concurrent count is #{4830 / 1299} times faster than lazy"
+  "Concurrent count is #{4830 / 1299} times faster than lazy"
   "Concurrent count is 3.7 times faster than lazy"
   """
   def time(fun, file) when is_function(fun, 1) do
