@@ -1,4 +1,9 @@
 defmodule WordCount do
+  @doc ~s"""
+
+      iex> 1
+      1
+  """
   def eager_count(file) do
     File.read!(file)
     |> String.split("\n")
